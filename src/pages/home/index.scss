@@ -1,0 +1,24 @@
+@import 'styles/index';
+
+.home-page {
+    $buttonLinkColor:  #0000FF;
+
+    display: flex;
+    height: 100%;
+    position: relative;
+
+    &__header {
+        position: absolute;
+        top: -48px;
+        right: 16px;
+
+        .button--theme-link {
+            margin-left: 4px;
+            color: $buttonLinkColor;
+
+            &:after {
+                background: $buttonLinkColor;
+            }
+        }
+    }
+}

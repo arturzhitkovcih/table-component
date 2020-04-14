@@ -1,0 +1,70 @@
+{
+    "env": {
+        "jest": true,
+        "es6": true
+    },
+    "parser": "babel-eslint",
+    "extends": [
+        "plugin:react/recommended",
+        "plugin:jsx-a11y/recommended"
+    ],
+    "plugins": [
+        "jest",
+        "jsx-a11y"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "jsx-a11y/label-has-associated-control": 0,
+        "jsx-a11y/interactive-supports-focus": 0,
+        "jsx-a11y/click-events-have-key-events": 0,
+        "jsx-a11y/no-noninteractive-element-interactions": 0,
+        "jsx-a11y/no-noninteractive-tabindex": 0,
+        "linebreak-style": [0],
+        "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
+        "padding-line-between-statements": [
+            "error",
+            { "blankLine": "always", "prev": "*", "next": "return" },
+            { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
+            { "blankLine": "any", "prev": ["const", "let", "var"], "next": ["const", "let", "var"] }
+        ],
+        "react/jsx-indent": [4],
+        "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+        "react/jsx-indent-props": [4],
+        "react/prefer-stateless-function": [0],
+        "import/no-extraneous-dependencies": [0],
+        "react/prop-types": [2, { "ignore": ["children"] }],
+        "no-underscore-dangle": [0],
+        "no-plusplus": "off",
+        "no-restricted-globals": [0],
+        "no-console": ["error", { "allow": ["warn", "error"] }],
+        "max-len": ["error", { "code": 120 }],
+        "prefer-template": "error",
+        "template-curly-spacing": ["error", "never"],
+        "object-curly-spacing": ["error", "always"],
+        "class-methods-use-this": ["error", {
+            "exceptMethods": [
+                "render",
+                "componentWillMount",
+                "componentDidMount",
+                "componentWillUnmount"
+            ]
+        }]
+    },
+    "globals": {
+        "__DEV__": true
+    }
+}

@@ -1,0 +1,77 @@
+@import 'styles/index';
+
+.button {
+    $textColor: #000;
+    $backgroundColor: #eee;
+    $shadowColor: #fff;
+    $hoverTextColor: #555;
+    $hoverBackgroundColor: #eee;
+    $disabledTextColor: #999;
+    $disabledBackgroundColor: #eee;
+    $borderColor: #ccc;
+
+    display: inline-flex;
+    position: relative;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: $textColor;
+    background-color: $backgroundColor;
+    box-shadow: 1px 1px 1px 0 $shadowColor inset;
+    border: 1px solid $borderColor;
+    border-radius: 2px;
+
+    &:hover {
+        color: $hoverTextColor;
+        background-color: $hoverBackgroundColor;
+    }
+
+    $disabled: #{&}--disabled;
+    $themeLink: #{&}--theme-link;
+
+    @at-root #{$disabled} {
+        cursor: default;
+        color: $disabledTextColor;
+        background-color: $disabledBackgroundColor;
+        box-shadow: none;
+
+        &:after {
+            background-color: $disabledBackgroundColor;
+        }
+
+        &:hover {
+            color: $disabledTextColor;
+            background-color: $disabledBackgroundColor;
+        }
+    }
+
+    @at-root #{$themeLink} {
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 1px;
+            background-color: $textColor;
+        }
+
+        &:hover {
+            background-color: transparent;
+
+            &:after {
+                background-color: $hoverTextColor;
+            }
+        }
+    }
+
+    @at-root #{$themeLink}#{$disabled} {
+        &:after {
+            background-color: $disabledTextColor;
+        }
+    }
+}

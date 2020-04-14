@@ -1,0 +1,58 @@
+@import 'styles/index';
+
+.check-box {
+    $self: &;
+    $textColor: #000;
+    $borderColor: #ccc;
+    $backgroundColor: #fff;
+    $disabledTextColor: #999;
+    $disabledBackgroundColor: #eee;
+    $errorBorderColor: #ff4500;
+    $successBorderColor: #228b22;
+
+    color: $textColor;
+    display: inline-flex;
+    cursor: pointer;
+
+    &__value {
+        position: relative;
+        width: 20px;
+        height: 20px;
+        margin-right: 6px;
+        border: 1px solid $borderColor;
+        background-color: $backgroundColor;
+
+        &-icon {
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    $disabled: #{&}--disabled;
+    $themeError: #{&}--theme-error;
+    $themeSuccess: #{&}--theme-success;
+
+    @at-root #{$disabled} {
+        cursor: default;
+        color: $disabledTextColor;
+
+        #{$self}__value {
+            background-color: $disabledBackgroundColor;
+        }
+    }
+
+    @at-root #{$themeError} {
+        #{$self}__value {
+            border-color: $errorBorderColor;
+        }
+    }
+
+    @at-root #{$themeSuccess} {
+        #{$self}__value {
+            border-color: $successBorderColor;
+        }
+    }
+}

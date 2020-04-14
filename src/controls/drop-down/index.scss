@@ -1,0 +1,106 @@
+@import 'styles/index';
+
+.drop-down {
+    $self: &;
+    $backgroundColor: #fff;
+    $borderColor: #ccc;
+    $selectedItemBackgroundColor: #e3f2fd;
+    $disabledBackgroundColor: #eee;
+    $errorBorderColor: #ff4500;
+    $successBorderColor: #228b22;
+
+    position: relative;
+    width: 100%;
+
+    &__content {
+        position: relative;
+        display: flex;
+        align-items: center;
+        border: 1px solid $borderColor;
+        background-color: $backgroundColor;
+    }
+
+    &__input {
+        width: 100%;
+        padding: 5px 8px;
+
+        &-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.0);
+            cursor: pointer;
+        }
+
+        &-icon {
+            position: absolute;
+            width: 20px;
+            height: auto;
+            padding: 2px;
+            cursor: text;
+            right: 6px;
+        }
+    }
+
+    &__items {
+        display: none;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        list-style-type: none;
+        padding: 0;
+        margin: -1px 0;
+        border: 1px solid $borderColor;
+        background-color: $backgroundColor;
+        z-index: 4;
+        max-height: 216px;
+    }
+
+    &__item {
+        cursor: pointer;
+        white-space: nowrap;
+        padding: 5px 8px;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        &--selected {
+            background-color: $selectedItemBackgroundColor;
+        }
+    }
+
+    $expanded: #{&}--expanded;
+    $disabled: #{&}--disabled;
+    $themeError: #{&}--theme-error;
+    $themeSuccess: #{&}--theme-success;
+
+    @at-root #{$expanded} {
+        #{$self}__items {
+            display: block;
+        }
+    }
+
+    @at-root #{$disabled} {
+        #{$self}__input {
+            background-color: $disabledBackgroundColor;
+        }
+    }
+
+    @at-root #{$themeError} {
+        #{$self}__content {
+            border-color: $errorBorderColor;
+        }
+
+    }
+
+    @at-root #{$themeSuccess} {
+        #{$self}__content {
+            border-color: $successBorderColor;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+@import 'styles/index';
+
+.input {
+    $textColor: #000;
+    $borderColor: #ccc;
+    $backgroundColor: #fff;
+    $disabledBackgroundColor: #eee;
+    $errorBorderColor: #ff4500;
+    $successBorderColor: #228b22;
+
+    color: $textColor;
+    background-color: $backgroundColor;
+    padding: 5px 8px;
+    border: 1px solid $borderColor;
+
+    $disabled: #{&}--disabled;
+    $themeError: #{&}--theme-error;
+    $themeSuccess: #{&}--theme-success;
+
+    @at-root #{$disabled} {
+        background-color: $disabledBackgroundColor;
+    }
+
+    @at-root #{$themeError} {
+        border-color: $errorBorderColor;
+    }
+
+    @at-root #{$themeSuccess} {
+        border-color: $successBorderColor;
+    }
+}

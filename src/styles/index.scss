@@ -1,0 +1,7 @@
+@import './screens';
+
+#root {
+    width: $screenSize-1440 + px;
+    height: $screenSize-768 + px;
+    background: #f5f5f5;
+}

@@ -1,0 +1,49 @@
+@import 'styles/index';
+
+.hyper-link {
+    $textColor: #00f;
+    $hoverTextColor: #55f;
+    $disabledTextColor: #999;
+
+    display: inline-flex;
+    position: relative;
+    text-decoration: none;
+    color: $textColor;
+
+    &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        background-color: $textColor;
+    }
+
+    &:hover {
+        color: $hoverTextColor;
+
+        &:after {
+            background-color: $hoverTextColor;
+        }
+    }
+
+    $disabled: #{&}--disabled;
+
+    @at-root #{$disabled} {
+        cursor: default;
+        color: $disabledTextColor;
+
+        &:after {
+            background-color: $disabledTextColor;
+        }
+
+        &:hover {
+            color: $disabledTextColor;
+
+            &:after {
+                background-color: $disabledTextColor;
+            }
+        }
+    }
+}
